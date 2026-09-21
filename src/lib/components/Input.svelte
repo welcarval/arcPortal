@@ -7,4 +7,4 @@
         type: string
     } = $props();
 </script>
-<input {required} {id} bind:value {name} {type} class="rounded-md border-gray-400"/>
+<input {required} {id} bind:value {name} {type} class="rounded-md h-8 text-sm w-full border-gray-400"/>
