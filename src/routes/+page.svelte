@@ -1,4 +1,7 @@
 <script lang="ts">
+    import Input from "$lib/components/Input.svelte";
+    import Label from "$lib/components/Label.svelte";
+
 
     let firstName = $state('');
     let lastName = $state('');
@@ -45,24 +48,24 @@
         <div class="flex flex-col w-full gap-4">
             <div class="flex items-center justify-between gap-8">
                 <div class="flex flex-col">
-                    <label for="first_name">First Name</label>
-                    <input required id="first_name" bind:value={firstName} name="first_name" type="text"/>
+                    <Label for="first_name">First Name</Label>
+                    <Input required id="first_name" bind:value={firstName} name="first_name" type="text"/>
                 </div>
 
                 <div class="flex flex-col">
-                    <label for="last_name">Last Name</label>
-                    <input required id="last_name" bind:value={lastName} name="last_name" type="text"/>
+                    <Label for="last_name">Last Name</Label>
+                    <Input required id="last_name" bind:value={lastName} name="last_name" type="text"/>
                 </div>
             </div>
 
             <div class="flex w-full gap-8">
                 <div class="flex flex-col">
-                    <label for="email">Email</label>
-                    <input required type="email" bind:value={email} name="email" id="email"/>
+                    <Label for="email">Email</Label>
+                    <Input required type="email" bind:value={email} name="email" id="email"/>
                 </div>
                 <div class="flex flex-col">
-                    <label for="birth_date">Birth Date</label>
-                    <input required id="birth_date" bind:value={birthDate} name="birth_date" type="date"/>
+                    <Label for="birth_date">Birth Date</Label>
+                    <Input required id="birth_date" bind:value={birthDate} name="birth_date" type="date"/>
                 </div>
             </div>
         </div>
@@ -73,24 +76,24 @@
             <div class="flex flex-col w-full gap-4">
                 <div class="flex items-center justify-between gap-8">
                     <div class="flex flex-col">
-                        <label for="street">Street</label>
-                        <input required id="street" bind:value={address.street} name="street" type="text"/>
+                        <Label for="street">Street</Label>
+                        <Input required id="street" bind:value={address.street} name="street" type="text"/>
                     </div>
 
                     <div class="flex flex-col">
-                        <label for="number">Number</label>
-                        <input required id="number" bind:value={address.number} name="number" type="number"/>
+                        <Label for="number">Number</Label>
+                        <Input required id="number" bind:value={address.number} name="number" type="number"/>
                     </div>
                 </div>
 
                 <div class="flex w-full gap-8">
                     <div class="flex flex-col">
-                        <label for="city">City</label>
-                        <input required id="city" bind:value={address.city} name="city" type="text"/>
+                        <Label for="city">City</Label>
+                        <Input required id="city" bind:value={address.city} name="city" type="text"/>
                     </div>
                     <div class="flex flex-col">
-                        <label for="country">Country</label>
-                        <input required id="country" bind:value={address.country} name="country" type="text"/>
+                        <Label for="country">Country</Label>
+                        <Input required id="country" bind:value={address.country} name="country" type="text"/>
                     </div>
                 </div>
             </div>
