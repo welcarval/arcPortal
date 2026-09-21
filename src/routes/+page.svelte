@@ -1,8 +1,8 @@
 <script lang="ts">
     import Input from "$lib/components/Input.svelte";
     import Label from "$lib/components/Label.svelte";
-    import { PUBLIC_API_URL } from "$env/static/public";
-    import type { Address, User } from "$lib/types";
+    import { PUBLIC_API_URL, PUBLIC_VIACEP_URL } from "$env/static/public";
+    import type { Address, User, ViaCepResult } from "$lib/types";
 
     let user: User = $state({
         firstName: '',
@@ -44,6 +44,23 @@
             body: JSON.stringify(user)
         })
     };
+
+    const handleCep = async (address: Address) => {
+        const response = await fetch(`${PUBLIC_VIACEP_URL}/${address.postalCode.replace(/\D/g, '')}/json`, {
+            method: "GET",
+            headers: { 'content-type': 'application/json' },
+        })
+
+        if (response.ok) {
+            let result: ViaCepResult = await response.json();
+            address.city = result.localidade
+            address.street = result.logradouro
+            address.country = "Brasil"
+        }
+    }
+
+
+
 </script>
 
 <div class="flex items-center justify-center min-h-screen my-20">
@@ -83,6 +100,12 @@
                 <div class="flex flex-col w-full gap-4 bg-blue-100 p-4 rounded-md">
                     <div class="flex items-center justify-between gap-8">
                         <div class="flex flex-col">
+                            <Label for="postalCode">postal Code</Label>
+                            <Input required id="postalCode" onblur={() => handleCep(address)} bind:value={address.postalCode} name="postalCode"
+                                   type="text"/>
+                        </div>
+
+                        <div class="flex flex-col">
                             <Label for="street">Street</Label>
                             <Input required id="street" bind:value={address.street} name="street" type="text"/>
                         </div>
@@ -92,11 +115,6 @@
                             <Input required id="number" bind:value={address.number} name="number" type="number"/>
                         </div>
 
-                        <div class="flex flex-col">
-                            <Label for="postalCode">postal Code</Label>
-                            <Input required id="postalCode" bind:value={address.postalCode} name="postalCode"
-                                   type="text"/>
-                        </div>
                     </div>
 
                     <div class="flex w-full gap-8">
