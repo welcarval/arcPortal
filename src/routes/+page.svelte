@@ -60,7 +60,6 @@
     }
 
 
-
 </script>
 
 <div class="flex items-center justify-center min-h-screen my-20">
@@ -70,24 +69,24 @@
             <h2 class="font-primary text-2xl font-semibold">Basic Info</h2>
             <div class="flex items-center gap-8">
                 <div class="flex flex-col">
-                    <Label for="first_name">First Name</Label>
-                    <Input bind:value={user.firstName} id="first_name" name="first_name" required type="text"/>
+                    <Input bind:value={user.firstName} name="first_name" label="First Name"
+                           placeholder="Your First Name" required type="text"/>
                 </div>
 
                 <div class="flex flex-col">
-                    <Label for="last_name">Last Name</Label>
-                    <Input bind:value={user.lastName} id="last_name" name="last_name" required type="text"/>
+                    <Input bind:value={user.lastName} name="last_name" label="Last Name" placeholder="Your Last Name"
+                           required type="text"/>
                 </div>
             </div>
 
             <div class="flex w-full gap-8">
                 <div class="flex flex-col">
-                    <Label for="email">Email</Label>
-                    <Input bind:value={user.email} id="email" name="email" required type="email"/>
+                    <Input bind:value={user.email} name="email" label="Email" placeholder="Your Email" required
+                           type="email"/>
                 </div>
                 <div class="flex flex-col">
-                    <Label for="birth_date">Birth Date</Label>
-                    <Input bind:value={user.birthDate} id="birth_date" name="birth_date" required type="date"/>
+                    <Input bind:value={user.birthDate} name="birth_date" label="Birth Date"
+                           placeholder="Your Birth Date" required type="date"/>
                 </div>
             </div>
         </div>
@@ -100,31 +99,31 @@
                 <div class="flex flex-col w-full gap-4 bg-blue-100 p-4 rounded-md">
                     <div class="flex items-center justify-between gap-8">
                         <div class="flex flex-col">
-                            <Label for="postalCode">postal Code</Label>
-                            <Input required id="postalCode" onblur={() => handleCep(address)} bind:value={address.postalCode} name="postalCode"
+                            <Input required onblur={() => handleCep(address)} bind:value={address.postalCode}
+                                   name="postalCode" label="Postal Code" placeholder="Enter Your Postal Code"
                                    type="text"/>
                         </div>
 
                         <div class="flex flex-col">
-                            <Label for="street">Street</Label>
-                            <Input required id="street" bind:value={address.street} name="street" type="text"/>
+                            <Input required bind:value={address.street} name="street" label="Street"
+                                   placeholder="Your Street" type="text"/>
                         </div>
 
                         <div class="flex flex-col">
-                            <Label for="number">Number</Label>
-                            <Input required id="number" bind:value={address.number} name="number" type="number"/>
+                            <Input required bind:value={address.number} name="number" label="Number"
+                                   placeholder="Your House Number" type="number"/>
                         </div>
 
                     </div>
 
                     <div class="flex w-full gap-8">
                         <div class="flex flex-col">
-                            <Label for="city">City</Label>
-                            <Input required id="city" bind:value={address.city} name="city" type="text"/>
+                            <Input required bind:value={address.city} name="city" label="City" placeholder="Your City"
+                                   type="text"/>
                         </div>
                         <div class="flex flex-col">
-                            <Label for="country">Country</Label>
-                            <Input required id="country" bind:value={address.country} name="country" type="text"/>
+                            <Input required bind:value={address.country} name="country" label="Country"
+                                   placeholder="Your Country" type="text"/>
                         </div>
                     </div>
                     <button type="button" onclick={() => removeAddress(i)}
