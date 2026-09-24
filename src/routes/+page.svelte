@@ -65,29 +65,18 @@
 <div class="flex items-center justify-center min-h-screen my-20">
     <form class="flex flex-col items-left gap-4" method="post"
           onsubmit={handleSubmit}>
-        <div class="flex flex-col w-full gap-4 bg-blue-50 p-8 rounded-md border border-blue-900">
-            <h2 class="font-primary text-2xl font-semibold">Basic Info</h2>
-            <div class="flex items-center gap-8">
-                <div class="flex flex-col">
+        <div class="flex flex-col w-full gap-4 p-8 rounded-2xl border border-gray-300">
+            <h2 class="font-primary text-blue-800 text-2xl font-semibold">Basic Info</h2>
+            <div class="flex flex-col gap-4 w-80">
                     <Input bind:value={user.firstName} name="first_name" label="First Name"
                            placeholder="Your First Name" required type="text"/>
-                </div>
-
-                <div class="flex flex-col">
                     <Input bind:value={user.lastName} name="last_name" label="Last Name" placeholder="Your Last Name"
                            required type="text"/>
-                </div>
-            </div>
 
-            <div class="flex w-full gap-8">
-                <div class="flex flex-col">
                     <Input bind:value={user.email} name="email" label="Email" placeholder="Your Email" required
                            type="email"/>
-                </div>
-                <div class="flex flex-col">
                     <Input bind:value={user.birthDate} name="birth_date" label="Birth Date"
                            placeholder="Your Birth Date" required type="date"/>
-                </div>
             </div>
         </div>
 
