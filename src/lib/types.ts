@@ -4,20 +4,3 @@ export type User = {
     email: string;
     birthDate: Date;
 }
-
-export type ViaCepResult = {
-    cep: string,
-    logradouro: string,
-    complemento: string,
-    unidade: string,
-    bairro: string,
-    localidade: string,
-    uf: string,
-    estado: string,
-    regiao: string,
-    ibge: string,
-    gia: string,
-    ddd: string,
-    siafi: string
-}
-
